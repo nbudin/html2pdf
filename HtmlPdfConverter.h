@@ -11,7 +11,7 @@
 #include "PaperSize.h"
 #include "FileToConvert.h"
 
-@interface HtmlPdfConverter : NSObject<NSApplicationDelegate> {
+@interface HtmlPdfConverter : NSObject {
 	PaperSize *paperSize;
 	FileToConvert *currentWorkItem;
 	NSMutableArray *todoList;

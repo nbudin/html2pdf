@@ -9,7 +9,12 @@
 #import <AppKit/AppKit.h>
 #import "PaperSize.h"
 
-@interface Html2PdfApplicationDelegate : NSObject<NSApplicationDelegate> {
+#if (MAC_OS_X_VERSION_MAX_ALLOWED <= MAC_OS_X_VERSION_10_5)
+@interface Html2PdfApplicationDelegate : NSObject
+#else
+@interface Html2PdfApplicationDelegate : NSObject<NSApplicationDelegate>
+#endif
+{
 	int argc;
 	char **argv;
 	PaperSize *paperSize;
