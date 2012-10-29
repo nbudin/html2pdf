@@ -40,7 +40,6 @@ int main(int argc, char *argv[]) {
 				break;
 			default:
 				usage();
-				[pool autorelease];
 				return 1;
 		}
 	}
