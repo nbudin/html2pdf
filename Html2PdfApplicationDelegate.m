@@ -30,7 +30,7 @@
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	NSMutableDictionary *fileDests = [[NSMutableDictionary alloc] initWithCapacity:argc];
 	for (int i=0; i<argc; i++) {
-		NSString *htmlFile = [[NSString alloc] initWithCString:argv[i]];
+		NSString *htmlFile = [[NSString alloc] initWithCString:argv[i] encoding:NSUTF8StringEncoding];
 		
 		NSMutableString *pdfFile;
 		if ([htmlFile length] >= 5 &&

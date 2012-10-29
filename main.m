@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
 	while ((ch = getopt_long(argc, argv, "s:", longopts, NULL)) != -1) {
 		switch (ch) {
 			case 's':
-				preset = [[NSString alloc] initWithCString:optarg];
+				preset = [[NSString alloc] initWithCString:optarg encoding:NSUTF8StringEncoding];
 				paperSize = [PaperSize newWithPreset:preset];
 				[paperSize autorelease];
 				[preset release];
