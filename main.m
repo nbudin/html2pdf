@@ -8,46 +8,62 @@
 #import <CoreFoundation/CoreFoundation.h>
 #include "Html2PdfApplicationDelegate.h"
 #include <getopt.h>
+#import <AppKit/AppKit.h>
 
 static struct option longopts[] = {
-	{ "papersize", required_argument, NULL, 's' }
+	{ "papersize", required_argument, NULL, 's' },
+    { "orientation", required_argument, NULL, 'o' }
 };
 
 void usage() {
 	printf("Usage: html2pdf [options] file.html [file2.html ...]\n");
 	printf("       --papersize=PAPERSIZE, -s PAPERSIZE: Specify a paper size\n");
+    printf("       --orientation=ORIENTATION, -o ORIENTATION: landscape or portrait (default portrait)\n");
 }
 
 int main(int argc, char *argv[]) {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	PaperSize *paperSize = nil;
-	NSString *preset;
+	NSString *presetName = @"letter";
+    NSString *orientationString;
+    NSPrintingOrientation orientation = NSPortraitOrientation;
 	
 	int ch;
-	while ((ch = getopt_long(argc, argv, "s:", longopts, NULL)) != -1) {
+	while ((ch = getopt_long(argc, argv, "s:o:", longopts, NULL)) != -1) {
 		switch (ch) {
 			case 's':
-				preset = [[NSString alloc] initWithCString:optarg encoding:NSUTF8StringEncoding];
-				paperSize = [PaperSize newWithPreset:preset];
-				[paperSize autorelease];
-				[preset release];
+				presetName = [[NSString alloc] initWithCString:optarg encoding:NSUTF8StringEncoding];
 				
-				if (paperSize == NULL) {
-					printf("%s is not a valid paper size preset\n", optarg);
+				if (![PaperSize isValidPresetName:presetName]) {
+					printf("%s is not a valid paper size preset (valid options: %s)\n", optarg, [[[PaperSize validPresetNames] componentsJoinedByString:@", "] cStringUsingEncoding:NSUTF8StringEncoding]);
 					return 1;
 				}
 				
 				break;
+            case 'o':
+                orientationString = [[NSString alloc] initWithCString:optarg encoding:NSUTF8StringEncoding];
+
+                if ([orientationString isEqualToString:@"portrait"])
+                    orientation = NSPortraitOrientation;
+                else if ([orientationString isEqualToString:@"landscape"])
+                    orientation = NSLandscapeOrientation;
+                else {
+                    printf("%s is not a valid orientation (must be either portrait or landscape)\n", optarg);
+                    [orientationString release];
+                    return 1;
+                }
+                
+                [orientationString release];
+                
+                break;
 			default:
 				usage();
 				return 1;
 		}
 	}
 	
-	if (paperSize == NULL) {
-		paperSize = [PaperSize newWithPreset:@"letter"];
-		[paperSize autorelease];
-	}
+	paperSize = [PaperSize newWithPreset:presetName orientation:orientation];
+	[paperSize autorelease];
 	
 	argc -= optind;
 	argv += optind;

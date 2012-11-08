@@ -20,6 +20,8 @@
 
 -(void)setupPrintInfo:(NSPrintInfo *)printInfo;
 
-+(PaperSize *)newWithPreset:(NSString *)name;
++(PaperSize *)newWithPreset:(NSString *)name orientation:(NSPrintingOrientation) orientation;
++(NSArray *)validPresetNames;
++(BOOL)isValidPresetName:(NSString *)name;
 
 @end
