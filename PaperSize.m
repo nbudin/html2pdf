@@ -14,7 +14,9 @@ NSDictionary *presets;
 +(void)initialize {
     presets = @{@"letter" : @{@"width": @612, @"height": @796, @"margin": @36},
     @"4x6" : @{@"width": @432, @"height": @288, @"margin": @18},
-    @"3x5" : @{@"width": @360, @"height": @216, @"margin": @18}};
+    @"3x5" : @{@"width": @360, @"height": @216, @"margin": @18},
+    @"a4"  : @{@"width": @595, @"height": @842, @"margin": @36}
+  };
 }
 
 -(id)initWithWidth:(CGFloat)w height:(CGFloat)h margin:(CGFloat)m orientation:(NSPrintingOrientation)o {
