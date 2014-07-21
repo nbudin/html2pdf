@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66060350197D78560023305E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6606034F197D78560023305E /* AppKit.framework */; };
+		66060352197D785A0023305E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66060351197D785A0023305E /* WebKit.framework */; };
 		667D3274134B8147008BE572 /* HtmlPdfConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 667D3273134B8147008BE572 /* HtmlPdfConverter.m */; };
 		667D3277134B8164008BE572 /* PaperSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 667D3276134B8164008BE572 /* PaperSize.m */; };
-		667D329E134B8639008BE572 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 667D329D134B8639008BE572 /* AppKit.framework */; };
-		667D32A2134B863F008BE572 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 667D32A1134B863F008BE572 /* WebKit.framework */; };
 		667D3324134B8D24008BE572 /* FileToConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 667D3323134B8D24008BE572 /* FileToConvert.m */; };
 		667D338E134B947E008BE572 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 667D338D134B947E008BE572 /* main.m */; };
 		667D34B3134B9C81008BE572 /* Html2PdfApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 667D34B2134B9C81008BE572 /* Html2PdfApplicationDelegate.m */; };
@@ -31,12 +31,12 @@
 
 /* Begin PBXFileReference section */
 		09AB6884FE841BABC02AAC07 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
+		6606034F197D78560023305E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
+		66060351197D785A0023305E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		667D3272134B8147008BE572 /* HtmlPdfConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HtmlPdfConverter.h; sourceTree = "<group>"; };
 		667D3273134B8147008BE572 /* HtmlPdfConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HtmlPdfConverter.m; sourceTree = "<group>"; };
 		667D3275134B8164008BE572 /* PaperSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaperSize.h; sourceTree = "<group>"; };
 		667D3276134B8164008BE572 /* PaperSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaperSize.m; sourceTree = "<group>"; };
-		667D329D134B8639008BE572 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		667D32A1134B863F008BE572 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		667D3322134B8D24008BE572 /* FileToConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileToConvert.h; sourceTree = "<group>"; };
 		667D3323134B8D24008BE572 /* FileToConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileToConvert.m; sourceTree = "<group>"; };
 		667D338D134B947E008BE572 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -52,9 +52,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66060352197D785A0023305E /* WebKit.framework in Frameworks */,
+				66060350197D78560023305E /* AppKit.framework in Frameworks */,
 				8DD76F790486A8DE00D96B5E /* CoreFoundation.framework in Frameworks */,
-				667D329E134B8639008BE572 /* AppKit.framework in Frameworks */,
-				667D32A2134B863F008BE572 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,12 +64,12 @@
 		08FB7794FE84155DC02AAC07 /* html2pdf */ = {
 			isa = PBXGroup;
 			children = (
+				66060351197D785A0023305E /* WebKit.framework */,
+				6606034F197D78560023305E /* AppKit.framework */,
 				08FB7795FE84155DC02AAC07 /* Source */,
 				C6859E96029091FE04C91782 /* Documentation */,
 				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
 				19C28FBDFE9D53C911CA2CBB /* Products */,
-				667D329D134B8639008BE572 /* AppKit.framework */,
-				667D32A1134B863F008BE572 /* WebKit.framework */,
 				667D3549134BA582008BE572 /* COPYING */,
 			);
 			name = html2pdf;
@@ -141,6 +141,8 @@
 /* Begin PBXProject section */
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = 1DEB924B08733DCA0010E9CD /* Build configuration list for PBXProject "html2pdf" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;

@@ -19,6 +19,21 @@ void usage() {
 	printf("Usage: html2pdf [options] file.html [file2.html ...]\n");
 	printf("       --papersize=PAPERSIZE, -s PAPERSIZE: Specify a paper size\n");
     printf("       --orientation=ORIENTATION, -o ORIENTATION: landscape or portrait (default portrait)\n");
+    printf("\n");
+    printf("Valid paper sizes: ");
+    
+    NSArray *paperSizes = [[PaperSize validPresetNames] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    int i = 0;
+    char cStringSize[81];
+    for (NSString *paperSize in paperSizes) {
+        [paperSize getCString:cStringSize maxLength:80 encoding:NSASCIIStringEncoding];
+        printf("%s", cStringSize);
+        i++;
+        if (i < [paperSizes count]) {
+            printf(", ");
+        }
+    }
+    printf("\n");
 }
 
 int main(int argc, char *argv[]) {
