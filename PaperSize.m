@@ -16,7 +16,9 @@ NSDictionary *presets;
                 @"4x6" : @{@"width": @432, @"height": @288, @"margin": @18},
                 @"3x5" : @{@"width": @360, @"height": @216, @"margin": @18},
                 @"a4"  : @{@"width": @595, @"height": @842, @"margin": @36},
-                @"a7"  : @{@"width": @298, @"height": @210, @"margin": @18}
+                @"a5"  : @{@"width": @420, @"height": @595, @"margin": @18},
+                @"a6"  : @{@"width": @298, @"height": @420, @"margin": @18},
+                @"a7"  : @{@"width": @210, @"height": @298, @"margin": @18}
   };
 }
 
